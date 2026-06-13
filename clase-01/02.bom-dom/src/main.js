@@ -44,7 +44,11 @@ console.warn('Modernos')
 
 // const tituloPrincipal = document.querySelector('h1')
 //const tituloPrincipal = document.querySelector('.text-3xl.text-green-600')
- 
+
 const tituloPrincipal = document.querySelector('#titulo-principal')
 
- console.log(tituloPrincipal);
+console.log(tituloPrincipal);
+
+const subtitulo = document.querySelector('#subtitulo')
+
+subtitulo.classList.add('text-green-600', 'text-2xl')
