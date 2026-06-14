@@ -23,5 +23,41 @@ contenedorPrincipal.appendChild(articulo)
 const cuadroDeTexto = document.querySelector('input')
 console.log(cuadroDeTexto)
 
-cuadroDeTexto.setAttribute('id', '5')
+/* cuadroDeTexto.setAttribute('id', '5') */
 cuadroDeTexto.classList.add('bg-green-700')
+
+const input = document.getElementById('lbl-nombre')
+console.log(input)
+
+// ! Para tomar los datos que nos de el usuario:
+
+// 1. La variable donde se guarda el dato ingresado
+console.log(input.name)
+
+// 2. Tomar el dato ingresado en el input
+console.log(input.value)
+
+const formu = document.getElementById('formu')
+console.log(formu)
+
+formu.addEventListener('submit',(e) => {
+        e.preventDefault()
+        console.log(formu)
+        console.log(input.value) // lo que ingresa el usuario
+        console.log(input.name) // nombre-oficial
+        formu.reset()
+})
+
+// Enunciado. Formulario básico
+
+/* 
+*Vamos a crear un formulario en el html que tenga:
+Nombre (texto), email (email), edad (numero) y un boton de enviar dentro del formulario 
+
+* Requisitos: No debe recargase la página cuando el formulario es enviado
+* Validar: Campos deben ser obligatorios
+* Extras= mensaje: Si algún dato es inválido, mostrar un mensaje en pantalla
+* Mensaje: Se envió correctamente el formulario
+
+*/
+
