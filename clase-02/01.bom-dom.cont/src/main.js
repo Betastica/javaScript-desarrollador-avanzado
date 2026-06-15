@@ -61,3 +61,55 @@ Nombre (texto), email (email), edad (numero) y un boton de enviar dentro del for
 
 */
 
+const formulario = document.getElementById('integrador')
+
+const nombre = document.getElementById('nombre')
+
+const errorNombre = document.getElementById('error-nombre')
+
+const email = document.getElementById('correo')
+
+const errorCorreo = document.getElementById('error-correo')
+
+const edad = document.getElementById('edad')
+
+const errorEdad = document.getElementById('error-edad')
+
+formulario.addEventListener('submit', (e) => {
+    e.preventDefault()
+    console.log(formulario)
+    if (nombre.value === '') {
+        errorNombre.textContent = 'Esta casilla no puede quedar vacía'
+        errorNombre.style.color = 'red'
+        return
+    } else {
+        errorNombre.textContent = ''
+        console.log(`Nombre: ${nombre.value.trim()}`)
+    }
+
+    if (email.value === '') {
+        errorCorreo.textContent = 'Esta casilla no puede quedar vacía'
+        errorCorreo.style.color = 'red'
+        return
+    } else if (!email.value.includes('@')){
+        errorCorreo.textContent = 'El mail debe contener @'
+        return
+    } else {
+        errorCorreo.textContent = ''
+        console.log(`Correo electrónico: ${email.value.trim()}`)
+    }
+
+    if (edad.value === '') {
+        errorEdad.textContent= 'Esta casilla no puede quedar vacía'
+        errorEdad.style.color = 'red'
+        return
+    } else {
+        errorEdad.textContent = ''
+        console.log(`Edad: ${edad.value.trim()}`)
+    }
+
+    console.log('Formulario enviado con éxito')
+    
+    formulario.reset()
+})
+
