@@ -17,3 +17,7 @@ Cuando trabajamos con Tailwinds luego en las desktools no aparece en que línea 
 
 * API REST: es una interfaz de software que permite a dos sistemas comunicarse a través de internet utilizando el protocolo HTTP
 
+JS: Trabaja de forma sincrónica pero tenemos formas de trabajar asincrónicamente mediante el uso del BOM
+ **Tarea 1 (petición) -> fetch (BOM)
+ **Tarea 2 (petición) -> fetch (BOM)
+ **Tarea 3 (geolocation) -> geolocation (BOM)
