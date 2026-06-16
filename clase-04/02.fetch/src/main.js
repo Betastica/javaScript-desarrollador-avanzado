@@ -51,7 +51,7 @@ const urlReqRes = 'https://reqres.in/api/collections/products/records?project_id
 // fetch(<url>, <options>) -> options es un objeto que dentro va a tener los headers -> dentro una clave x-api-key
 const peticion = fetch(urlReqRes, {
     headers: {
-        'x-api-key': 'pro_e791d76a3da1a0f79060d60fe5b7eed3b12e16665cf1e05280018484ccc664a0'
+        'x-api-key': import.meta.env.XAPIKEY
     }
 })
 /* then() | catch() */
