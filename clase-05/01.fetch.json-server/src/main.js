@@ -95,3 +95,81 @@ peticionXIdConUsuario
         .catch(err => console.error(err))
 
 //! Peticiones async con async y await
+
+const peticionPostYUsuario = async() => {
+
+
+    try {
+
+            const respuestaPost = await fetch(url + 10)
+            //console.log(respuestaPost)
+
+            if(!respuestaPost.ok) {
+                throw new Error('No se pudo obtener el post')
+            }
+            const postId = await respuestaPost.json()
+            //console.log(postId)
+            //console.log(postId.userId)
+
+            const urlPeticionUsuario = urlUsuario + postId.userId
+            //console.log(urlPeticionUsuario)
+            const respuestaUser = await fetch(urlPeticionUsuario)
+            console.log(respuestaUser)
+
+            if (!respuestaUser.ok) {
+                throw new Error('No se pudo obtener el usuario')
+            }
+
+            const userId = await respuestaUser.json()
+            console.log(userId)
+
+            postId.userId = userId
+            console.log(postId)
+            console.log(postId.title) // titulo del post
+            console.log(postId.userId.name) // nombre del usuario
+
+    } catch (error) {
+
+        console.error(error)
+
+    }
+}
+
+peticionPostYUsuario()
+
+// CRUD -> API REST
+// C: CREATE -> Protocolo HTTP -> POST
+// R: READ -> Protocolo HTTP -> GET
+// U: UPDATE -> Protocolo HTTP -> PUT
+// D: DELETE -> Protocolo HTTP -> DELETE
+
+const urlProd = 'http://localhost:8080/productos/'
+
+const getAllProductos = async () => {
+
+    try {
+        //url + verbo
+        const res = await fetch(urlProd, {method: 'GET'}) // por defecto fetch hace peticiones con el verbo get
+        console.log(res)
+        if (!res.ok){
+            const error = new Error('No se pudo realizar la petición')
+            throw error // break <---- Corta la ejecución en el punto en el que se lanza
+        }
+        //parsear el JSON
+        const productos = await res.json()
+
+
+        if (!Array.isArray(productos)) {
+            throw new Error('Formato de datos inválido')
+        }
+
+        console.warn(productos)
+        
+    } catch (error) {
+        console.error(error)
+    }
+
+}
+
+getAllProductos()
+
